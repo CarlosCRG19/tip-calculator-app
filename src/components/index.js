@@ -1,4 +1,5 @@
-import BillInput from './BillInput';
+import Header from './Header';
+import BillForm from './BillForm';
 import TipCalculator from './TipCalculator';
 
-export { BillInput, TipCalculator };
+export { Header, BillForm, TipCalculator };

@@ -22,6 +22,7 @@ const tipCalculatorTheme = {
     darkGrayishCyan2: '#7f9c9f',
     lightGrayishCyan1: '#c5e4e7',
     lightGrayishCyan2: '#f4fafa',
+    brown: '#d88770',
     white: '#fff',
   },
 };
@@ -31,8 +32,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
       
     ${({ theme }) => css`
-      font-family: ${theme.typography.fontFamily};
       font-size: ${theme.typography.fontSize};
+      font-family: ${theme.typography.fontFamily};
+      background-color: ${theme.colors.lightGrayishCyan1};
     `}
 
     input, textarea, button {

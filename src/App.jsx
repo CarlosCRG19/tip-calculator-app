@@ -1,16 +1,23 @@
 import React from 'react';
 
 import { BillProvider } from 'stores';
-import { BillInput, TipCalculator } from 'components';
 import { ThemeProviderWithGlobalStyles } from 'themes';
+import { Header, BillForm, TipCalculator } from 'components';
+
+import { Container, Content } from './App.styles.js';
 
 const App = () => {
   return (
     <ThemeProviderWithGlobalStyles>
-      <BillProvider>
-        <BillInput />
-        <TipCalculator />
-      </BillProvider>
+      <Container>
+        <Header/>
+        <Content>
+          <BillProvider>
+            <BillForm />
+            <TipCalculator />
+          </BillProvider> 
+        </Content>
+      </Container>
     </ThemeProviderWithGlobalStyles>
   );
 };
