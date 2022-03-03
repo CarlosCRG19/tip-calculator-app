@@ -6,13 +6,13 @@ import { dollarIcon, personIcon } from 'assets';
 
 import { Button, InputWithIcon } from 'components/UI';
 
-import { 
+import {
   CustomTipInput,
   ButtonGroup,
   Error,
   InputHeader,
   Label,
-  StyledBillForm
+  StyledBillForm,
 } from './BillForm.styles';
 
 const tipOptions = ['5', '10', '15', '25', '50'];
@@ -33,7 +33,9 @@ const BillForm = () => {
     bill, setBill, tip, setTip, numberOfPeople, setNumberOfPeople,
   } = useBill();
 
-  const isValidNumberOfPeople = () => numberOfPeople > 0;
+  const isValidNumberOfPeople = () => {
+    return +numberOfPeople.toString().replace(regex.commas, '') > 0;
+  };
 
   const handleBillChange = event => {
     const input = event.target.value;

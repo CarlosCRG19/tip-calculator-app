@@ -5,7 +5,7 @@ import { createGlobalStyle, css, ThemeProvider } from 'styled-components';
 const tipCalculatorTheme = {
   typography: {
     fontFamily: "'Space Mono', monospace",
-    fontSize: '24px',
+    fontSize: '24px', 
     fontWeight: {
       regular: 400,
       bold: 700,

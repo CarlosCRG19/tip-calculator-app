@@ -12,34 +12,29 @@ const StyledButton = styled.button`
     color: ${theme.colors.white};
     background-color: ${theme.colors.veryDarkCyan};
     font-weight: ${theme.typography.fontWeight.bold};
-    
-    &:hover {
-      color: ${theme.colors.veryDarkCyan};
-      background-color: ${theme.colors.lightGrayishCyan1};
-    }
   `}
   
-  ${({ fullWidth }) =>
-    fullWidth
-      ? css`
+  ${({ fullWidth }) => (fullWidth
+    ? css`
           width: 100%;
         `
-      : css`
+    : css`
           width: 7.1rem;
-        `}
+        `)}
 
-  ${({ theme, selected }) =>
-    selected &&
-    css`
+  ${({ theme, selected }) => selected
+    && css`
       color: ${theme.colors.veryDarkCyan};
       background-color: ${theme.colors.strongCyan};
     `}
 
-  ${({ theme, disabled }) =>
-    disabled &&
-    css`
-      color: ${theme.colors.darkGrayishCyan1};
-      background-color: ${theme.colors.darkGrayishCyan2};
+  ${({ theme, selected, disabled }) => !selected
+    && !disabled
+    && css`
+      &:hover {
+        color: ${theme.colors.veryDarkCyan};
+        background-color: ${theme.colors.lightGrayishCyan1};
+      }
     `}
 `;
 

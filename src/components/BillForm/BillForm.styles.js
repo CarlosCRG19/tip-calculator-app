@@ -14,7 +14,6 @@ const CustomTipInput = styled(Input)`
 
 const ButtonGroup = styled.div`
   width: 100%;
-  height: 100%; 
   
   display: grid;
   grid-template-columns: 1fr 1fr;  
@@ -45,8 +44,7 @@ const Label = styled.label`
 `;
 
 const StyledBillForm = styled.div`
-  padding: 1.5rem;
-  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  padding: 2rem;
 `;
 
 export { CustomTipInput, ButtonGroup, Error, InputHeader, Label,  StyledBillForm };

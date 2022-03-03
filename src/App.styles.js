@@ -4,6 +4,7 @@ import { Card } from 'components/UI';
 
 const Container = styled.div`
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,12 +15,12 @@ const Content = styled(Card)`
   width: 100%;
   height: 100%;
 
-  gap: 1.5rem;
   border-radius: 1rem 1rem 0 0;
   box-sizing: border-box;
 
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
+    font-weight: ${theme.typography.fontWeight.bold};
   `}
 
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop }) {

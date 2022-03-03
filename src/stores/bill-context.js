@@ -15,13 +15,27 @@ const BillProvider = ({ children, initialState = INITIAL_STATE }) => {
   const [tip, setTip] = useState(initialTip);
   const [numberOfPeople, setNumberOfPeople] = useState(initialNumberOfPeople);
 
+  const isInitialState = () => {
+    return bill === initialBill && tip === initialTip && numberOfPeople === initialNumberOfPeople;
+  };
+
   const resetBill = () => {
     setBill(initialBill);
     setTip(initialTip);
+
     setNumberOfPeople(initialNumberOfPeople);
   };
 
-  const value = { bill, setBill, tip, setTip, numberOfPeople, setNumberOfPeople, resetBill };
+  const value = {
+    bill,
+    setBill,
+    tip,
+    setTip,
+    numberOfPeople,
+    setNumberOfPeople,
+    resetBill,
+    isInitialState: isInitialState(),
+  };
 
   return <BillContext.Provider value={value}>{children}</BillContext.Provider>;
 };
