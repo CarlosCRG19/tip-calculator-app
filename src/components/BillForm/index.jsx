@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { maskCurrency, regex } from 'utils';
-import { useBill } from 'stores/bill-context';
-import { dollarIcon, personIcon } from 'assets';
+import { maskCurrency, regex } from "utils";
+import { useBill } from "stores/bill-context";
+import { dollarIcon, personIcon } from "assets";
 
-import { Button, InputWithIcon } from 'components/UI';
+import { Button, InputWithIcon } from "components/UI";
 
 import {
   CustomTipInput,
@@ -13,31 +13,33 @@ import {
   InputHeader,
   Label,
   StyledBillForm,
-} from './BillForm.styles';
+} from "./BillForm.styles";
 
-const tipOptions = ['5', '10', '15', '25', '50'];
+const tipOptions = ["5", "10", "15", "25", "50"];
 
-const maskNumberOfPeople = value => {
+const maskNumberOfPeople = (value) => {
   const { leadingZeros, nonDigitCharacters } = regex;
 
-  let maskedNumberOfPeople = value.replace(nonDigitCharacters, '');
-  maskedNumberOfPeople = maskedNumberOfPeople.replace(leadingZeros, '');
+  let maskedNumberOfPeople = value.replace(nonDigitCharacters, "");
+  maskedNumberOfPeople = maskedNumberOfPeople.replace(leadingZeros, "");
   // TODO: change this regex to a more meaningful name
-  maskedNumberOfPeople = maskedNumberOfPeople.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+  maskedNumberOfPeople = maskedNumberOfPeople.replace(
+    /(\d)(?=(\d\d\d)+(?!\d))/g,
+    "$1,"
+  );
 
   return maskedNumberOfPeople;
 };
 
 const BillForm = () => {
-  const {
-    bill, setBill, tip, setTip, numberOfPeople, setNumberOfPeople,
-  } = useBill();
+  const { bill, setBill, tip, setTip, numberOfPeople, setNumberOfPeople } =
+    useBill();
 
   const isValidNumberOfPeople = () => {
-    return +numberOfPeople.toString().replace(regex.commas, '') > 0;
+    return +numberOfPeople.toString().replace(regex.commas, "") > 0;
   };
 
-  const handleBillChange = event => {
+  const handleBillChange = (event) => {
     const input = event.target.value;
 
     if (!input) {
@@ -49,7 +51,7 @@ const BillForm = () => {
     setBill(maskedInput);
   };
 
-  const handleNumberOfPeopleChange = event => {
+  const handleNumberOfPeopleChange = (event) => {
     const input = event.target.value;
 
     if (!input) {
@@ -61,19 +63,24 @@ const BillForm = () => {
     setNumberOfPeople(maskedInput);
   };
 
-  const handleTipChange = event => setTip(event.target.value);
+  const handleTipChange = (event) => setTip(event.target.value);
 
   return (
     <StyledBillForm>
       <InputHeader>
         <Label htmlFor="">Bill</Label>
       </InputHeader>
-      <InputWithIcon value={bill} icon={dollarIcon} onChange={handleBillChange} />
+      <InputWithIcon
+        className="bill-form__input"
+        value={bill}
+        icon={dollarIcon}
+        onChange={handleBillChange}
+      />
 
       <InputHeader>
         <Label htmlFor="">Select Tip %</Label>
       </InputHeader>
-      <ButtonGroup>
+      <ButtonGroup className="bill-form__button-group">
         {tipOptions.map((option, index) => {
           return (
             <Button

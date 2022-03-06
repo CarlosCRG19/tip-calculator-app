@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { Card } from 'components/UI';
+import { Card } from "components/UI";
 
 const Container = styled.div`
   width: 100vw;
@@ -12,9 +12,6 @@ const Container = styled.div`
 `;
 
 const Content = styled(Card)`
-  width: 100%;
-  height: 100%;
-
   border-radius: 1rem 1rem 0 0;
   box-sizing: border-box;
 
@@ -23,15 +20,16 @@ const Content = styled(Card)`
     font-weight: ${theme.typography.fontWeight.bold};
   `}
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.desktop }) {
-    width: 64%;
-    padding: 2rem;
-    flex-direction: row;
-    align-items: stretch;
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-    gap: 2rem;
+    width: 60rem;
+    height: 32rem;
+    padding: 1.2rem;
+
     border-radius: 1rem;
-  };
+  }
 `;
 
 export { Container, Content };

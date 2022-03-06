@@ -1,3 +1,3 @@
-import ThemeProviderWithGlobalStyles from './ThemeProviderWithGlobalStyles';
+import ThemeProviderWithGlobalStyles from "./ThemeProviderWithGlobalStyles";
 
 export { ThemeProviderWithGlobalStyles };

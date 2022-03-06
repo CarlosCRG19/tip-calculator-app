@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import StyledInput from './Input.styles.js';
+import StyledInput from "./Input.styles.js";
 
 const Input = ({ ...inputProps }) => <StyledInput {...inputProps} />;
 
-export default Input; 
+export default Input;

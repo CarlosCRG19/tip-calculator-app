@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledInputWithIcon = styled.div`
   height: 2rem;
@@ -20,4 +20,3 @@ const StyledInputWithIcon = styled.div`
 `;
 
 export { StyledInputWithIcon };
-

@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import { BillProvider } from 'stores';
-import { ThemeProviderWithGlobalStyles } from 'themes';
-import { Header, BillForm, TipCalculator } from 'components';
+import { BillProvider } from "stores";
+import { ThemeProviderWithGlobalStyles } from "themes";
+import { Header, BillForm, TipCalculator } from "components";
 
-import { Container, Content } from './App.styles.js';
+import { Container, Content } from "./App.styles.js";
 
 const App = () => {
   return (
     <ThemeProviderWithGlobalStyles>
       <Container>
-        <Header/>
+        <Header />
         <Content>
           <BillProvider>
             <BillForm />
             <TipCalculator />
-          </BillProvider> 
+          </BillProvider>
         </Content>
       </Container>
     </ThemeProviderWithGlobalStyles>

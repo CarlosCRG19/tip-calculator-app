@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import { appLogo } from 'assets';
+import { appLogo } from "assets";
 
-import { StyledHeader } from './Header.styles';
+import { StyledHeader } from "./Header.styles";
 
 const Header = () => {
   return (
@@ -12,4 +12,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;

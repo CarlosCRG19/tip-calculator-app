@@ -1,40 +1,33 @@
-import React from 'react';
+import React from "react";
 
-import { maskCurrency, regex } from 'utils';
-import { useBill } from 'stores';
+import { maskCurrency, regex } from "utils";
+import { useBill } from "stores";
 
 import {
   Amount,
   AmountPerPerson,
   AmountReason,
   Label,
-  Reason,
   ResetButton,
   StyledTipCalculator,
-} from './TipCalculator.styles';
+} from "./TipCalculator.styles";
 
-const parseNumber = stringWithNumber => {
-  return +stringWithNumber.toString().replace(regex.commas, '');
+const parseNumber = (stringWithNumber) => {
+  return +stringWithNumber.toString().replace(regex.commas, "");
 };
 
 const renderAmountPerPerson = (label, amount) => (
   <AmountPerPerson>
     <AmountReason>
-      <Reason>{label}</Reason>
-      <Label>/ person</Label>
+      <Label>{label}</Label>
+      <Label variant="secondary">/ person</Label>
     </AmountReason>
-    <Amount>{`$${maskCurrency(amount)}`}</Amount>
+    <Amount>{`$${maskCurrency(amount) || "0.00"}`}</Amount>
   </AmountPerPerson>
 );
 
 const TipCalculator = () => {
-  const {
-    bill,
-    tip,
-    numberOfPeople,
-    resetBill,
-    isInitialState,
-  } = useBill();
+  const { bill, tip, numberOfPeople, resetBill, isInitialState } = useBill();
 
   const billAsNum = parseNumber(bill);
   const tipAsNum = parseNumber(tip);
@@ -46,13 +39,11 @@ const TipCalculator = () => {
 
   return (
     <StyledTipCalculator>
-      {renderAmountPerPerson('Tip Amount', tipPerPerson.toFixed(2))}
-      {renderAmountPerPerson('Total', totalPerPerson.toFixed(2))}
-      <ResetButton
-        onClick={resetBill}
-        disabled={isInitialState}
-        fullWidth
-      >
+      <div>
+        {renderAmountPerPerson("Tip Amount", tipPerPerson.toFixed(2))}
+        {renderAmountPerPerson("Total", totalPerPerson.toFixed(2))}
+      </div>
+      <ResetButton onClick={resetBill} disabled={isInitialState} fullWidth>
         RESET
       </ResetButton>
     </StyledTipCalculator>

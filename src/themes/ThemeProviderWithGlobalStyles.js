@@ -1,29 +1,29 @@
-import React from 'react';
+import React from "react";
 
-import { createGlobalStyle, css, ThemeProvider } from 'styled-components';
+import { createGlobalStyle, css, ThemeProvider } from "styled-components";
 
 const tipCalculatorTheme = {
   typography: {
     fontFamily: "'Space Mono', monospace",
-    fontSize: '24px', 
+    fontSize: "24px",
     fontWeight: {
       regular: 400,
       bold: 700,
     },
   },
   breakpoints: {
-    mobile: '375px',
-    desktop: '1440px',
+    mobile: "375px",
+    desktop: "1440px",
   },
   colors: {
-    strongCyan: '#26c0ab',
-    veryDarkCyan: '#00494d',
-    darkGrayishCyan1: '#5e7a7d',
-    darkGrayishCyan2: '#7f9c9f',
-    lightGrayishCyan1: '#c5e4e7',
-    lightGrayishCyan2: '#f4fafa',
-    brown: '#d88770',
-    white: '#fff',
+    strongCyan: "#26c0ab",
+    veryDarkCyan: "#00494d",
+    darkGrayishCyan1: "#5e7a7d",
+    darkGrayishCyan2: "#7f9c9f",
+    lightGrayishCyan1: "#c5e4e7",
+    lightGrayishCyan2: "#f4fafa",
+    brown: "#d88770",
+    white: "#fff",
   },
 };
 
