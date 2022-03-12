@@ -1,7 +1,7 @@
 import regex from "./regex";
 
 const maskCurrency = (value) => {
-  if (!+value) {
+  if (value === "0" || value === "0.00") {
     return "";
   }
 

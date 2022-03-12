@@ -2,13 +2,16 @@ import styled, { css } from "styled-components";
 
 import { Card } from "components/UI";
 
-const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+const Container = styled.main`
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    min-height: 100vh;
+  }
 `;
 
 const Content = styled(Card)`

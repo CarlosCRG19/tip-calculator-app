@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { maskCurrency, regex } from "utils";
 import { useBill } from "stores/bill-context";
@@ -32,6 +32,8 @@ const maskNumberOfPeople = (value) => {
 };
 
 const BillForm = () => {
+  const [customTip, setCustomTip] = useState("");
+
   const { bill, setBill, tip, setTip, numberOfPeople, setNumberOfPeople } =
     useBill();
 
@@ -65,6 +67,15 @@ const BillForm = () => {
 
   const handleTipChange = (event) => setTip(event.target.value);
 
+  const handleCustomTipChange = (event) => {
+    handleTipChange(event);
+
+    let newCustomTip = event.target.value;
+    newCustomTip = newCustomTip.replace(regex.nonDigitCharacters, "");
+
+    setCustomTip(newCustomTip);
+  };
+
   return (
     <StyledBillForm>
       <InputHeader>
@@ -72,6 +83,7 @@ const BillForm = () => {
       </InputHeader>
       <InputWithIcon
         className="bill-form__input"
+        inputMode="numeric"
         value={bill}
         icon={dollarIcon}
         onChange={handleBillChange}
@@ -94,7 +106,12 @@ const BillForm = () => {
             </Button>
           );
         })}
-        <CustomTipInput placeholder="Custom" onBlur={handleTipChange} />
+        <CustomTipInput
+          placeholder="Custom"
+          inputMode="numeric"
+          value={customTip}
+          onChange={handleCustomTipChange}
+        />
       </ButtonGroup>
 
       <InputHeader>
@@ -102,6 +119,7 @@ const BillForm = () => {
         {!isValidNumberOfPeople() && <Error>Can't be zero</Error>}
       </InputHeader>
       <InputWithIcon
+        inputMode="numeric"
         value={numberOfPeople}
         icon={personIcon}
         invalid={!isValidNumberOfPeople()}
