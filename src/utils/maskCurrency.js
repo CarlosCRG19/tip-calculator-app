@@ -1,8 +1,14 @@
 import regex from "./regex";
 
+const isDecimalUnderOne = (value) => !isNaN(value) && +value < 1;
+
 const maskCurrency = (value) => {
   if (value === "0" || value === "0.00") {
     return "";
+  }
+
+  if (isDecimalUnderOne(value)) {
+    return +value;
   }
 
   const {
